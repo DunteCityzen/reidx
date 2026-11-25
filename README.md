@@ -2,7 +2,7 @@
 
 <img width="1234" height="953" alt="image" src="https://github.com/user-attachments/assets/45031fc7-1ad1-46df-914b-8b021485d69e" />
 
-ReidX is a terminal workspace for coding, research and technical writing, created by Mr. Robot.TxT. Use one model for a small job, or let a lead agent hand research, edits, tests and review to different specialists. LiteLLM keeps the model choices in one place. ReidX keeps conversations, memory and workflow files on your machine.
+ReidX is a terminal workspace for coding, research and technical writing, created by yours truly. Use one model for a small job, or let a lead agent hand research, edits, tests and review to different specialists. LiteLLM keeps the model choices in one place. ReidX keeps conversations, memory and workflow files on your machine.
 
 ## Install and start
 
@@ -31,7 +31,7 @@ python3 -m venv "$HOME/.local/share/reidx-gateway"
   --host 127.0.0.1 --port 4000 --config "$REIDX_HOME/config/litellm/config.yaml"
 ```
 
-In the terminal where you use ReidX, set `LITELLM_MASTER_KEY` to your LiteLLM client credential. If the gateway is elsewhere, set `REIDX_SAFE_LLM_URL` to its API base ending in `/v1`. The safe URL also serves memory lookups, including in burst mode.
+In the terminal where you use ReidX, set `LITELLM_MASTER_KEY` to your LiteLLM client credential. If the gateway is elsewhere, set `REIDX_SAFE_LLM_URL` to its API base ending in `/v1`. The safe URL also serves memory lookups, including in burst mode. You could also run litellm as a service if you're comfortable enough with linux.
 
 ```sh
 reidx setup --gateway-url "${REIDX_SAFE_LLM_URL:-http://127.0.0.1:4000/v1}"
