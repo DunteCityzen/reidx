@@ -41,6 +41,8 @@ reidx launch
 
 ## Launch modes and arguments
 
+<img width="1248" height="993" alt="image" src="https://github.com/user-attachments/assets/bb89583a-cf8c-4736-89b3-0dc27de2f1e6" />
+
 Run `reidx` or `reidx launch` for the normal interactive session. Run `reidx launch --mode burst` to use the burst gateway. Launcher options come before `--`, and arguments for the compiled CLI come after it.
 
 | Task | Command |
@@ -65,6 +67,9 @@ reidx launch -- run --session ses_YOUR_ID "Summarize what we decided."
 Run `reidx launch --help` for launcher options, `reidx launch -- --help` for compiled CLI commands, and `reidx launch -- run --help` or `reidx launch -- mini --help` for subcommand options. Use `reidx setup --help` for prerequisite checks.
 
 ## Working with agents
+
+<img width="1242" height="932" alt="image" src="https://github.com/user-attachments/assets/2ae05fd0-a1c4-43e7-8e8a-3995f10d647f" />
+
 
 Use **Build** for a task that needs coordination, **Plan** to work out an approach, and **Single-model** when you want one selected alias throughout. The terminal's agent selector lets you switch leads.
 
