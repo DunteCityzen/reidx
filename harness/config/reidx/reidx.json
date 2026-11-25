@@ -1,0 +1,1141 @@
+{
+  "update": "disable",
+  "model": "litellm/orchestrator",
+  "providers": {
+    "litellm": {
+      "name": "LiteLLM Gateway",
+      "models": {
+        "orchestrator": {
+          "name": "Nemotron 3 Ultra via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          }
+        },
+        "planner": {
+          "name": "Xing4.0 29B A4B via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-architect",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "researcher": {
+          "name": "Thinking Machines Inkling via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-researcher",
+              "body": {
+                "temperature": 0.2
+              }
+            }
+          ]
+        },
+        "security-analyst": {
+          "name": "Nemotron 3 Ultra via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-security-analyst",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "implementer": {
+          "name": "Xing4.0 29B A4B via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-implementer",
+              "body": {
+                "temperature": 0.2
+              }
+            }
+          ]
+        },
+        "code-reviewer": {
+          "name": "Dots3-Note Preview via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-code-reviewer",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "test-engineer": {
+          "name": "Xing4.0 29B A4B via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-test-engineer",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "evaluator": {
+          "name": "Thinking Machines Inkling via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-evaluator",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "vision-analyst": {
+          "name": "Nemotron 3.5 Super VL via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": [
+            {
+              "id": "reidx-vision-analyst",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "writer": {
+          "name": "Thinking Machines Inkling via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-writer-specialist",
+              "body": {
+                "temperature": 0.45
+              }
+            }
+          ]
+        },
+        "memory-curator": {
+          "name": "Xing4.0 29B A4B via OpenRouter",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-memory-curator",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "panel-nemotron": {
+          "name": "Nemotron 3 Ultra \u2014 independent panel",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-panel-nemotron",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "panel-inkling": {
+          "name": "Thinking Machines Inkling \u2014 independent panel",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-panel-inkling",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "panel-xing": {
+          "name": "Xing4.0 29B A4B \u2014 independent panel",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-panel-xing",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "panel-dots": {
+          "name": "Dots3-Note Preview \u2014 independent panel",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-panel-dots",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        },
+        "panel-super-vl": {
+          "name": "Nemotron 3.5 Super VL \u2014 independent panel",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true
+          },
+          "variants": [
+            {
+              "id": "reidx-panel-super-vl",
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        }
+      },
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:4000/v1",
+        "apiKey": "{env:LITELLM_MASTER_KEY}"
+      }
+    }
+  },
+  "agents": {
+    "build": {
+      "description": "Main task coordinator. Selects a workflow, delegates independent work and owns final integration.",
+      "mode": "primary",
+      "model": "litellm/orchestrator",
+      "steps": 24,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "architect",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "researcher",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "security-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "implementer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "code-reviewer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "test-engineer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "evaluator",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "vision-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "writer-specialist",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "memory-curator",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "same-model-worker",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "same-model-reviewer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-nemotron",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-inkling",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-xing",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-dots",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-super-vl",
+          "effect": "allow"
+        }
+      ]
+    },
+    "plan": {
+      "description": "Primary planning agent. Produces plans and acceptance criteria without modifying source files.",
+      "mode": "primary",
+      "model": "litellm/planner",
+      "steps": 16,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "architect",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "researcher",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "security-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "code-reviewer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "evaluator",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "same-model-worker",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "same-model-reviewer",
+          "effect": "allow"
+        }
+      ]
+    },
+    "research": {
+      "description": "Primary research agent for evidence gathering, documentation analysis and technical investigation.",
+      "mode": "primary",
+      "model": "litellm/researcher",
+      "steps": 18,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "webfetch",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "researcher",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "security-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "vision-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "evaluator",
+          "effect": "allow"
+        }
+      ]
+    },
+    "security": {
+      "description": "Primary security-analysis agent for authorized assessments, threat modelling and configuration reviews.",
+      "mode": "primary",
+      "model": "litellm/security-analyst",
+      "steps": 20,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "webfetch",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "researcher",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "security-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "code-reviewer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "vision-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "evaluator",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "test-engineer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-nemotron",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-inkling",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-xing",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-dots",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-super-vl",
+          "effect": "allow"
+        }
+      ]
+    },
+    "review": {
+      "description": "Primary independent-review agent for validating code, reports, evidence and completed work.",
+      "mode": "primary",
+      "model": "litellm/evaluator",
+      "steps": 18,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "webfetch",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "researcher",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "security-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "code-reviewer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "vision-analyst",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "evaluator",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "test-engineer",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-nemotron",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-inkling",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-xing",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-dots",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "panel-super-vl",
+          "effect": "allow"
+        }
+      ]
+    },
+    "writer": {
+      "description": "Primary writing agent for technical reports, blog articles, LinkedIn posts and editing.",
+      "mode": "primary",
+      "model": "litellm/writer",
+      "steps": 18,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "researcher",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "writer-specialist",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "evaluator",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "memory-curator",
+          "effect": "allow"
+        }
+      ]
+    },
+    "general": {
+      "description": "General-purpose read-only research subagent.",
+      "mode": "subagent",
+      "model": "litellm/researcher",
+      "steps": 10,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "deny"
+        }
+      ]
+    },
+    "explore": {
+      "description": "Fast, read-only workspace exploration subagent.",
+      "mode": "subagent",
+      "model": "litellm/researcher",
+      "steps": 8,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "deny"
+        }
+      ]
+    },
+    "single-model": {
+      "description": "Runs a full task lifecycle with one selected OpenRouter model; generic workers inherit the same model.",
+      "mode": "primary",
+      "steps": 22,
+      "permissions": [
+        {
+          "action": "read",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "glob",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "grep",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "list",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "skill",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "same-model-worker",
+          "effect": "allow"
+        },
+        {
+          "action": "subagent",
+          "resource": "same-model-reviewer",
+          "effect": "allow"
+        }
+      ]
+    },
+    "title": {
+      "model": "litellm/planner"
+    }
+  },
+  "permissions": [
+    {
+      "action": "read",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "edit",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "glob",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "grep",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "list",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "memory_memory_search",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "memory_memory_recent",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "memory_memory_remember",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "memory_memory_index_file",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "memory_memory_reindex",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "memory_memory_propose_skill",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "ask"
+    }
+  ],
+  "media": {
+    "image": {
+      "auto_resize": true,
+      "max_width": 2000,
+      "max_height": 2000,
+      "max_base64_bytes": 5242880
+    }
+  },
+  "experimental": {
+    "subagent_depth": 1
+  },
+  "mcp": {
+    "servers": {
+      "memory": {
+        "codemode": false,
+        "type": "local",
+        "command": [
+          "python3",
+          "memory-mcp/server.py"
+        ],
+        "environment": {
+          "LITELLM_API_BASE": "{env:REIDX_SAFE_LLM_URL}",
+          "LITELLM_API_KEY": "{env:LITELLM_MASTER_KEY}",
+          "EMBEDDING_MODEL": "nomic-embed"
+        },
+        "disabled": false,
+        "timeout": {
+          "catalog": 180000,
+          "execution": 180000
+        }
+      }
+    }
+  },
+  "policies": [
+    {
+      "action": "provider.use",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "provider.use",
+      "resource": "litellm",
+      "effect": "allow"
+    }
+  ]
+}

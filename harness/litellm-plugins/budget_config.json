@@ -1,0 +1,31 @@
+{
+  "_comment": "Per-upstream-model daily request budget for OpenRouter free-tier models. Edit daily_caps to change limits. aliases maps each LiteLLM model_name to the upstream OpenRouter model it actually shares a quota with -- several role aliases point at the same upstream model, so their requests are counted together, not per-alias.",
+  "timezone": "UTC",
+  "comment_on_caps": "Operator-defined safety caps, not a claim about upstream entitlements. Account-wide aggregate cap is independent of per-model caps.",
+  "daily_caps": {
+    "nvidia/nemotron-3-ultra-550b-a55b:free": 40,
+    "xingchen-agi/xing4.0-29b-a4b:free": 40,
+    "thinkingmachines/inkling:free": 40,
+    "dots-studio/dots-3-note-preview:free": 40,
+    "nvidia/nemotron-3.5-super-vl:free": 40
+  },
+  "aliases": {
+    "orchestrator": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "security-analyst": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "panel-nemotron": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "planner": "xingchen-agi/xing4.0-29b-a4b:free",
+    "implementer": "xingchen-agi/xing4.0-29b-a4b:free",
+    "test-engineer": "xingchen-agi/xing4.0-29b-a4b:free",
+    "memory-curator": "xingchen-agi/xing4.0-29b-a4b:free",
+    "panel-xing": "xingchen-agi/xing4.0-29b-a4b:free",
+    "researcher": "thinkingmachines/inkling:free",
+    "evaluator": "thinkingmachines/inkling:free",
+    "writer": "thinkingmachines/inkling:free",
+    "panel-inkling": "thinkingmachines/inkling:free",
+    "code-reviewer": "dots-studio/dots-3-note-preview:free",
+    "panel-dots": "dots-studio/dots-3-note-preview:free",
+    "vision-analyst": "nvidia/nemotron-3.5-super-vl:free",
+    "panel-super-vl": "nvidia/nemotron-3.5-super-vl:free"
+  },
+  "aggregate_daily_cap": 40
+}

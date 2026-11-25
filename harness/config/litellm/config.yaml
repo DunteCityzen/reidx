@@ -1,0 +1,154 @@
+# Keep model_name stable and edit litellm_params to change the backend.
+model_list:
+- model_name: router
+  litellm_params:
+    model: ollama_chat/qwen2.5:3b-instruct
+    api_base: http://127.0.0.1:11434
+    num_ctx: 32768
+- model_name: nomic-embed
+  litellm_params:
+    model: ollama/hf.co/nomic-ai/nomic-embed-text-v1.5-GGUF:latest
+    api_base: http://127.0.0.1:11434
+- model_name: glm-flash
+  litellm_params:
+    model: ollama_chat/glm-4.7-flash:q4_K_M
+    api_base: http://127.0.0.1:11434
+    num_ctx: 131072
+- model_name: qwen-general
+  litellm_params:
+    model: ollama_chat/qwen3.5:27b
+    api_base: http://127.0.0.1:11434
+    num_ctx: 131072
+- model_name: orchestrator
+  litellm_params:
+    model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: planner
+  litellm_params:
+    model: openrouter/xingchen-agi/xing4.0-29b-a4b:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: researcher
+  litellm_params:
+    model: openrouter/thinkingmachines/inkling:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: security-analyst
+  litellm_params:
+    model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: implementer
+  litellm_params:
+    model: openrouter/xingchen-agi/xing4.0-29b-a4b:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: code-reviewer
+  litellm_params:
+    model: openrouter/dots-studio/dots-3-note-preview:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: test-engineer
+  litellm_params:
+    model: openrouter/xingchen-agi/xing4.0-29b-a4b:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: evaluator
+  litellm_params:
+    model: openrouter/thinkingmachines/inkling:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: vision-analyst
+  litellm_params:
+    model: openrouter/nvidia/nemotron-3.5-super-vl:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: writer
+  litellm_params:
+    model: openrouter/thinkingmachines/inkling:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: memory-curator
+  litellm_params:
+    model: openrouter/xingchen-agi/xing4.0-29b-a4b:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 1
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: panel-nemotron
+  litellm_params:
+    model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: panel-inkling
+  litellm_params:
+    model: openrouter/thinkingmachines/inkling:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: panel-xing
+  litellm_params:
+    model: openrouter/xingchen-agi/xing4.0-29b-a4b:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: panel-dots
+  litellm_params:
+    model: openrouter/dots-studio/dots-3-note-preview:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+- model_name: panel-super-vl
+  litellm_params:
+    model: openrouter/nvidia/nemotron-3.5-super-vl:free
+    api_key: os.environ/OPENROUTER_API_KEY
+    max_parallel_requests: 2
+    rpm: 15
+    timeout: 120
+    num_retries: 1
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+router_settings:
+  default_max_parallel_requests: 2
+  num_retries: 0

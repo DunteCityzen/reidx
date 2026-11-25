@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""Launch the compiled ReidX terminal with the selected LiteLLM profile."""
+import argparse
+import json
+import os
+from pathlib import Path
+import re
+import sys
+
+
+def main():
+    root = Path(__file__).resolve().parents[1]
+    arguments = sys.argv[1:]
+    if arguments == ["--version"]:
+        binary = root / "bin/reidx-core"
+        os.execv(str(binary), [str(binary), "--version"])
+    if arguments[:1] == ["setup"]:
+        python = root / ".venv/bin/python"
+        default_config = ["--litellm-config", str(root / "config/litellm/config.yaml")]
+        os.execv(str(python), [str(python), str(root / "setup-reidx.py"), *default_config, *arguments[1:]])
+
+    parser = argparse.ArgumentParser(prog="reidx", description=__doc__)
+    parser.add_argument("command", choices=["launch"])
+    parser.add_argument("--mode", choices=["safe", "burst"], default="safe")
+    resume = parser.add_mutually_exclusive_group()
+    resume.add_argument("--session", help="Resume a saved session by ID")
+    resume.add_argument("--continue", dest="latest", action="store_true", help="Resume the latest session")
+    front, extra = arguments, []
+    if "--" in arguments:
+        index = arguments.index("--")
+        front, extra = arguments[:index], arguments[index + 1:]
+    args = parser.parse_args(front or ["launch"])
+    if args.session and not re.fullmatch(r"ses_[A-Za-z0-9_-]+", args.session):
+        parser.error("invalid session ID")
+    if not os.environ.get("LITELLM_MASTER_KEY"):
+        parser.error("set LITELLM_MASTER_KEY to your LiteLLM client credential")
+
+    env = dict(os.environ)
+    for name in ("OPENROUTER_API_KEY", "OPENAI_API_KEY", "ANTHROPIC_API_KEY"):
+        env.pop(name, None)
+    env["OPENCODE_DISABLE_AUTOUPDATE"] = "true"
+    env["REIDX_PROFILE"] = args.mode
+    config_dir = Path(env.get("REIDX_CONFIG_DIR", env.get("OPENCODE_CONFIG_DIR", str(root / "reidx"))))
+    env["OPENCODE_CONFIG_DIR"] = str(config_dir)
+    for kind in ("DATA", "STATE", "CONFIG", "CACHE"):
+        env.setdefault("XDG_" + kind + "_HOME", str(root / "runtime" / kind.lower()))
+    safe_url = env.get("REIDX_SAFE_LLM_URL", "http://127.0.0.1:4000/v1")
+    url = safe_url if args.mode == "safe" else env.get("REIDX_BURST_LLM_URL", "http://127.0.0.1:4001/v1")
+    override = json.loads(env.get("REIDX_CONFIG_CONTENT", env.get("OPENCODE_CONFIG_CONTENT", "{}")))
+    override.setdefault("providers", {}).setdefault("litellm", {}).setdefault("settings", {})["baseURL"] = url
+    env["REIDX_SAFE_LLM_URL"] = safe_url
+    env["OPENCODE_CONFIG_CONTENT"] = json.dumps(override)
+
+    if args.session:
+        extra = ["--session", args.session, *extra]
+    if args.latest:
+        extra = ["--continue", *extra]
+    if not any(arg == "--server" or arg.startswith("--server=") for arg in extra) and "--standalone" not in extra:
+        extra.insert(0, "--standalone")
+    binary = root / "bin/reidx-core"
+    os.execve(str(binary), [str(binary), *extra], env)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except (OSError, ValueError, AttributeError) as error:
+        sys.exit(f"ReidX could not start: {error}")

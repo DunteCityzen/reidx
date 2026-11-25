@@ -1,0 +1,17 @@
+/.tooling/
+/upstream/
+/dist/
+__pycache__/
+*.py[cod]
+.venv/
+runtime/
+learning/
+.env
+.env.*
+*.sqlite*
+*.db
+env
+env.local
+*.pem
+*.key
+/.release-build/
