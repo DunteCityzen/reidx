@@ -1,5 +1,7 @@
 # ReidX 1.0
 
+<img width="1234" height="953" alt="image" src="https://github.com/user-attachments/assets/45031fc7-1ad1-46df-914b-8b021485d69e" />
+
 ReidX is a terminal workspace for coding, research and technical writing, created by Mr. Robot.TxT. Use one model for a small job, or let a lead agent hand research, edits, tests and review to different specialists. LiteLLM keeps the model choices in one place. ReidX keeps conversations, memory and workflow files on your machine.
 
 ## Install and start
